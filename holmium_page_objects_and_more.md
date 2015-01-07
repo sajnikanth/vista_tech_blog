@@ -1,8 +1,12 @@
 # Holmium - Page Objects and more
 
-Holmium is a plugin for [nosetests](https://nose.readthedocs.org/en/latest) and helps manage your selenium (python) tests.
+At Cimpress, we believe if you have to do something a second time, it better be automated. This includes testing; teams usually have thousands of Unit Tests, supported by hundreds of Acceptance (API and UI) tests that sufficiently cover the entire code base. Out of these, UI tests have gained notoreity for being fragile, difficult to maintain and frankly being a headache. If you seem to agree with this sentiment and have screamed blue murder when working with UI test suites, read on; I might be able to help.
 
-Consider the following test case:
+Selenium is a popular choice for automating UI acceptance tests and scripts are usually written in Python, Ruby or even Java. If the language is Python, one of the most popular testing frameworks to execute these suites is [nosetests](https://nose.readthedocs.org/en/latest). Nose offers a brilliant plugin architecture to extend test capabilities and [Holmium](http://holmiumcore.readthedocs.org/en/latest/) is one such plugin.
+
+Holmium makes it easy to manage your selenium test suite and provides a multitude of command line options.
+
+Consider the following example to test search-functionality on Vistaprint site; save it as `vista_test.py`:
 
     from selenium import webdriver
     import unittest
@@ -28,7 +32,11 @@ Consider the following test case:
         unittest.main()
 
 
-Save it as `vista_test.py` and run: `nosetests vista_test.py`, to see the following:
+This can be run with nosetests as:
+
+    nosetests vista_test.py
+
+Here&#39;s what happens:
 
 * Firefox is launched
 * Vistaprint website is shown
@@ -40,9 +48,13 @@ Save it as `vista_test.py` and run: `nosetests vista_test.py`, to see the follow
 
 ## Using Holmium
 
-Things can get tricky when the test suite grows and then we notice that the class name has changed. That means every test using the old class name would have to be updated! This is where [Page Objects](https://code.google.com/p/selenium/wiki/PageObjects) help. The upshot is, page objects make it easier to maintain tests and reduces duplicate code.
+The above test is quite simple but not very maintainable because the CSS class names might change from release to release. Imagine having a comprehensive test suite with about 100 tests using these elements with the old class names; it can be time-consuming (and painful) to update each and every test!
 
-Holmium helps create page objects quite easily. Here&#39;s how the above test case can be re-written to use holmium page objects:
+The trick is to keep concerns separate and this is where [Page Objects](https://code.google.com/p/selenium/wiki/PageObjects) help. The upshot is, Page Objects make it easier to maintain tests and reduces duplicate code. Did you also notice the browser being hardcoded in the test? This makes it difficult to reuse the same code for multiple browsers.
+
+Holmium helps create page objects quite easily. Simultaneously, it also supports passing the browser name as a  command line argument.
+
+Here&#39;s how the above test case can be re-written to use holmium page objects:
 
     from holmium.core import Page, Element, Elements, Locators
     import unittest
@@ -91,7 +103,7 @@ We now run the above test like this:
 
 ## Holmium Config
 
-Next, let&#39;s say this test needs to be run on staging and production environments; hardcoding that url within the test doesn&#39;t help. Luckily, Holmium supports a `config` file and here&#39;s how to do that:
+Next, let&#39;s say this test needs to be run on staging and production environments; hardcoding that url within the test doesn&#39;t help. Luckily, Holmium supports a `config` file and here&#39;s how to use that:
 
 
         config = {
@@ -122,10 +134,13 @@ Refer to [Holmium Documentation](http://holmiumcore.readthedocs.org/en/latest/un
 
 ## Conclusion
 
-The above example illustrates the simplicity of using Holmium Page Objects and also introduces the various command line options available. If you are someone with very little or no automation test experience, Holmium could be a great place to start. Happy Coding!
+The above example illustrates the simplicity of using Holmium Page Objects and also introduces the various command line options available. Page Objects help in keeping page-elements and services-offered-by-a-page away from tests and reduces duplicate code. In case an element definition changes (change of ID / Class / Name etc.), a single fix to that page object is all it takes instead of making changes to all the tests.
+
+Holmium also offers amazing parameterization options for browser, test environments, user agent etc.. With these, a single test code can be reused in many ways.
+
+If you are someone with very little or no automation test experience, Holmium could be a great place to start. Happy Coding!
 
 ## Resources
 
-* Installation - Holmium can be install via pip - `pip install holmium.core`
-* [Holmium Documentation](http://holmiumcore.readthedocs.org/)
 * [Git Repo for example script](https://github.com/sajnikanth/vista_tech_blog)
+* [Holmium Documentation](http://holmiumcore.readthedocs.org/)
