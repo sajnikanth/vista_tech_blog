@@ -1,6 +1,6 @@
 # Holmium - Page Objects and more
 
-At Cimpress, we believe if you have to do something a second time, it better be automated. This includes testing; teams usually have thousands of Unit Tests, supported by hundreds of Acceptance (API and UI) tests that sufficiently cover the entire code base. Out of these, UI tests have gained notoreity for being fragile, difficult to maintain and frankly being a headache. If you seem to agree with this sentiment and have screamed blue murder when working with UI test suites, read on; I might be able to help.
+At Cimpress, we believe if you have to do something a second time, it better be automated. This includes testing; teams usually have thousands of Unit Tests, supported by hundreds of Acceptance (API and UI) tests that sufficiently cover the entire code base. Out of these, UI tests have gained notoriety for being fragile, difficult to maintain and frankly being a headache. If you seem to agree with this sentiment and have screamed blue murder when working with UI test suites, read on; I might be able to help.
 
 Selenium is a popular choice for automating UI acceptance tests and scripts are usually written in Python, Ruby or even Java. If the language is Python, one of the most popular testing frameworks to execute these suites is [nosetests](https://nose.readthedocs.org/en/latest). Nose offers a brilliant plugin architecture to extend test capabilities and [Holmium](http://holmiumcore.readthedocs.org/en/latest/) is one such plugin.
 
