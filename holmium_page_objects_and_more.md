@@ -134,9 +134,9 @@ Refer to [Holmium Documentation](http://holmiumcore.readthedocs.org/en/latest/un
 
 ## Conclusion
 
-The above example illustrates the simplicity of using Holmium Page Objects and also introduces the various command line options available. Page Objects help in keeping page-elements and services-offered-by-a-page away from tests and reduces duplicate code. In case an element definition changes (change of ID / Class / Name etc.), a single fix to that page object is all it takes instead of making changes to all the tests.
+The above example illustrates the simplicity of using Holmium Page Objects and also introduces the various command line options available. Page Objects help in keeping page-elements and services-offered-by-a-page away from tests and reduce duplicate code. In case an element definition changes (change of ID / Class / Name etc.), a single fix to that page object is all it takes instead of making changes to all the tests.
 
-Holmium also offers amazing parameterization options for browser, test environments, user agent etc.. With these, a single test code can be reused in many ways.
+Holmium also offers amazing parameterization options for browser, test environments, user agent etc.. With these, a single test script can be reused in many ways.
 
 If you are someone with very little or no automation test experience, Holmium could be a great place to start. Happy Coding!
 
