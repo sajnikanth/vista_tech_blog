@@ -1,5 +1,7 @@
 # Holmium Demo
 
+Refer to the [article here](http://lifeinvistaprint.com/techblog/unit-testing-holmium-page-objects/).
+
 ## Setup
 
 * Install Firefox
